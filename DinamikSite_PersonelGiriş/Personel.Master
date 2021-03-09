@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Personel.master.cs" Inherits="DinamikSite_PersonelGiriş.Personel" %>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+
+    <title>Personel Kayıt</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootsrtap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootsrtap/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="bootsrtap/css/main.css" rel="stylesheet">
+
+
+    <script>
+        function confirmDelete(silinecekID) {
+            if (confirm("Silinmesini onaylıyor musunuz?")) {
+                window.location.href = "depsil.aspx?depidyolla=" + silinecekID;
+                //window.open("sil.html?sil="+silinecekID); //yeni sayfada açar
+            } else {
+                window.location.href = "departmanlistele.aspx"; //bununla istenen mesaj sayfası olabilir
+                //false; //false denirse aynı sayfada durur, silme olmaz
+            }
+        }
+    </script>
+
+    <script>
+        function confirmDelete2(silinecekID) {
+            if (confirm("Silinmesini onaylıyor musunuz?")) {
+                window.location.href = "sil.aspx?personelidyolla=" + silinecekID;
+                //window.open("sil.html?sil="+silinecekID); //yeni sayfada açar
+            } else {
+                window.location.href = "listele.aspx"; //bununla istenen mesaj sayfası olabilir
+                //false; //false denirse aynı sayfada durur, silme olmaz
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Raddison Blu Otel</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="anasayfa.aspx">Anasayfa</a></li>
+                    <li><a href="departmanekle.aspx">Departman Ekle</a></li>
+                    <li><a href="personelekle.aspx">Personel Ekle</a></li>
+
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:">Listele <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="listele.aspx">Personelleri Göster</a></li>
+                            <li><a href="departmanlistele.aspx">Departman Listele</a></li>
+                            <li><a href="saatkayitlari.aspx">Giriş/Çıkış Saat Kayıtları</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="giris_cikis.aspx">Personel Giris/Çıkıs</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="bootsrtap/js/bootstrap.min.js"></script>
+</body>
